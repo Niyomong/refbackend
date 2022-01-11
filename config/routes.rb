@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :posts do 
       # get 'search', on: :collection
       resources :likes, only: [:index, :create, :destroy] ### いいね機能 ###
-      resource :bookmarks, only: [:create, :destroy] ### お気に入り機能 ###
+      resources :bookmarks, only: [:create, :destroy] ### お気に入り機能 ###
       get :bookmarkStatus, on: :member
       get :likeStatus, on: :member
 
