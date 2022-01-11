@@ -1,5 +1,5 @@
 class Bookmark < ApplicationRecord
-  belongs_to :post
+  belongs_to :post, optional: true
   belongs_to :user
 
   validates_uniqueness_of :post_id, scope: :user_id    # バリデーション（ユーザーと記事の組み合わせは一意）

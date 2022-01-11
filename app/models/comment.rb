@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
   before_create :set_random_comment_id
 
   belongs_to :user, required: true
-  belongs_to :post, required: true
+  belongs_to :post, required: false
   has_many :commentLikes, dependent: :destroy #いいね機能
   has_many :notifications, dependent: :destroy #通知機能
 
