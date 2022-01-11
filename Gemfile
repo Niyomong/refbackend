@@ -9,7 +9,6 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
-gem "foreman" # ２つのサーバー同時起動
 gem "devise"
 gem "devise_token_auth"
 gem 'carrierwave', '~> 2.0' #画像アップロード
