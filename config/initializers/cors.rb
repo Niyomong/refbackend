@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-        origins 'https://refnote-react-frontend.herokuapp.com'
+        origins ENV['FRONTEND_PRODUCTION_DOMAIN'], ENV['FRONTEND_LOCAL_DOMAIN']
 
         resource '*',
             headers: :any,
