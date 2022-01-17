@@ -9,16 +9,6 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy #いいね機能
 
-# 検索機能
-  def self.search(search)
-    if search
-      Post.where('postContent LIKE(?)', "%#{search}%")
-    else
-      Post.all
-    end
-  end
-
-
 ############ 通知機能（like、comment(質問への回答orコメント)） ############
 has_many :notifications, dependent: :destroy #通知機能
 

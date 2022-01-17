@@ -6,20 +6,34 @@ class V1::PostsController < ApplicationController
     include Pagination
 
     def index
-      posts = Post.search(params[:keyword])
-        .where(published: true)
-        .limit(80)
-        .page(params[:page]).per(8) #gem kaminari
-        .where(:created_at=>6.months.ago..Time.now)
-        .order(created_at: :desc)
+
+      if params[:keyword]
+          keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+          @posts = Post
+          keywords.each do |keyword|
+            @posts = @posts.where(['postContent LIKE (?) OR postRef LIKE (?) OR postLink LIKE (?)', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+          end
+          posts = @posts.where(published: true)
+            .limit(50)
+            .page(params[:page]).per(8)
+            .where(:created_at=>6.months.ago..Time.now)
+            .order(created_at: :desc)
+      else
+          posts = Post.where(published: true)
+            .limit(50)
+            .page(params[:page]).per(8)
+            .where(:created_at=>6.months.ago..Time.now)
+            .order(created_at: :desc)
+      end
 
       @pagination = pagination(posts)
-      
+
       render json: { status: 'SUCCESS', message: 'Loaded posts', 
         data: posts.as_json(include: [:user, :comments, :likes, :bookmarks]), 
         pagination: @pagination,
       }
     end
+
 
     def show
       likeCount = @post.likes.count
