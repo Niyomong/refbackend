@@ -57,6 +57,7 @@ class V1::UsersController < ApplicationController
       userPosts = Post.where(user: @user, published: true, question: false).order(created_at: :desc)
       userAsks = Post.where(user: @user, published: true, question: true).order(created_at: :desc)
       userComments = Comment.where(user_id: @user.id).order(created_at: :desc)
+      userPrivatePosts = Post.where(user: @user, published: false, question: false).order(created_at: :desc)
       @followingCount = @user.followings.count
       @followerCount = @user.followers.count
 
