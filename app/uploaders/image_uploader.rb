@@ -38,7 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  process resize_to_fill: [30, 30]
+  process resize_to_fill: [100, 100]
 
   # jpg,jpeg,gif,pngしか受け付けない(セキュリティのためにファイル形式を制限)
   def extension_allowlist

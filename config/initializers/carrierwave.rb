@@ -11,8 +11,8 @@ CarrierWave.configure do |config|
       path_style: true
     }
   else
-    # config.asset_host = "http://localhost:3001" #バックエンド側のドメイン名
-    config.asset_host = ENV['BACKEND_LOCAL_DOMAIN'],
+    config.asset_host = "http://localhost:3001" #バックエンド側のドメイン名
+    # config.asset_host = ENV['BACKEND_LOCAL_DOMAIN'],
     config.storage = :file
     config.cache_storage = :file
   end
