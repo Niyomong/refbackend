@@ -14,7 +14,6 @@ CarrierWave.configure do |config|
       path_style: true
     }
     config.fog_directory  = ENV['S3_BUCKET']
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/ここにバケット名を入れます'
 
   else
     config.asset_host = ENV['BACKEND_LOCAL_DOMAIN'] #バックエンド側のドメイン名
