@@ -4,11 +4,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  # if Rails.env.production?
+  storage :fog
+  # else
+  #   storage :file
+  # end
   
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -36,7 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  process resize_to_fill: [100, 100]
+  process resize_to_fill: [800, 800]
 
   # jpg,jpeg,gif,pngしか受け付けない(セキュリティのためにファイル形式を制限)
   def extension_allowlist
