@@ -11,13 +11,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 gem "devise"
 gem "devise_token_auth"
+gem 'kaminari' #ページネーション
+gem 'dotenv-rails' #.env
+gem 'pry-rails' #デバッグ
+
+# 画像保存
 gem 'carrierwave', '~> 2.0' #画像アップロード
 gem 'rmagick' # 画像の加工とか
 gem 'fog-aws'
 gem 'aws-sdk-s3' # s3
-gem 'kaminari' #ページネーション
-gem 'dotenv-rails' #.env
-gem 'pry-rails' #デバッグ
+
 
 group :production do
   gem 'pg'
