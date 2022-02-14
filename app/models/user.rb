@@ -2,6 +2,9 @@
 
 class User < ActiveRecord::Base
 
+  #カラムの名前をmount_uploaderに指定(carrierwave)
+  mount_uploader :image, ImageUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
@@ -11,7 +14,7 @@ class User < ActiveRecord::Base
   validates :name,
             uniqueness: true,
             format: { with: /\A[a-zA-Z\d]+\z/, message: "半角英数字のみ利用可能です。" },
-            length: { minimum: 3, maximum: 25 }
+            length: { minimum: 4, maximum: 25 }
   def to_param
     return self.name
   end
@@ -19,9 +22,6 @@ class User < ActiveRecord::Base
   validates :bio, length: { maximum: 200 }
   validates :place, length: { maximum: 50 }
   validates :website, length: { maximum: 100 }
-
-  #カラムの名前をmount_uploaderに指定(carrierwave)
-  mount_uploader :image, ImageUploader
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy

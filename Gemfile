@@ -21,7 +21,6 @@ gem 'rmagick' # 画像の加工とか
 gem 'fog-aws'
 gem 'aws-sdk-s3' # s3
 
-
 group :production do
   gem 'pg'
 end
