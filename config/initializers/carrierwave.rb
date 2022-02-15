@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
   if Rails.env.production?
     config.storage :fog
     config.fog_provider = 'fog/aws'
-    config.fog_directory = 'refnote-image' # 作成したバケット名を記述
+    config.fog_directory = ENV['S3_BUCKET'] #バケット
     config.fog_public = false
     config.fog_credentials = {
       provider: 'AWS',
@@ -17,6 +17,6 @@ CarrierWave.configure do |config|
     }
   else
     config.storage :file
-    config.enable_processing = false if Rails.env.test?
+    config.enable_processing = false
   end
 end
