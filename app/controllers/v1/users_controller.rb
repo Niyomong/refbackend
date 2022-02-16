@@ -27,6 +27,9 @@ class V1::UsersController < ApplicationController
       }   
     end
 
+
+
+    
     def followlist
       @followings = @user.followings #自分がフォローしているユーザー一覧
       @followers = @user.followers #自分をフォローしているユーザー一覧
