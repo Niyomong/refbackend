@@ -11,7 +11,8 @@ class V1::PostsController < ApplicationController
           keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
           @posts = Post
           keywords.each do |keyword|
-            @posts = @posts.where(['postContent LIKE (?) OR postRef LIKE (?) OR postLink LIKE (?)', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+            # @posts = @posts.where(['postContent LIKE (?) OR postRef LIKE (?) OR postLink LIKE (?)', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+            @posts = @posts.where(['postRef LIKE (?) OR postLink LIKE (?)', "%#{keyword}%", "%#{keyword}%"])
           end
           posts = @posts.where(published: true)
             .limit(50)
