@@ -21,8 +21,15 @@ test:
   database: db/test.sqlite3
 
 # 半角スペース２個ぶんの空白を開ける
+# production:
+#   <<: *default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 10
+
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 10
+  database: refbackend_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
