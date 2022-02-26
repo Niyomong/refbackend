@@ -29,6 +29,7 @@ test:
 
 production:
   <<: *default
+  adapter: mysql2
   database: refbackend_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
