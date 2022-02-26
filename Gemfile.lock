@@ -235,7 +235,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
     thor (1.2.1)
     thread_safe (0.3.6)
@@ -274,7 +273,6 @@ DEPENDENCIES
   rmagick
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   tzinfo-data
   unicorn (= 5.4.1)
 
