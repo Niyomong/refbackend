@@ -21,13 +21,12 @@ gem 'fog-aws'
 gem 'aws-sdk-s3' # s3
 
 group :production do
-  # gem 'mysql2'
-  gem 'mysql2', '0.5.3'
+  gem 'mysql2'
   gem 'unicorn', '5.4.1'
 end
 
 group :development, :test do
-  gem 'mysql2', '0.5.3'
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
