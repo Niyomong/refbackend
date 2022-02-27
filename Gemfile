@@ -21,7 +21,7 @@ gem 'fog-aws'
 gem 'aws-sdk-s3' # s3
 
 group :production do
-  gem 'mysql2'
+  gem 'pg'
   gem 'unicorn', '5.4.1'
 end
 
