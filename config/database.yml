@@ -20,10 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# postgresの場合
 # production:
 #   <<: *default
 #   url: <%= ENV['DATABASE_URL'] %>
 
+# MySQLの場合
 production:
   <<: *default
   database: refbackend_production
