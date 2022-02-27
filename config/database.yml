@@ -20,6 +20,13 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# production:
+#   <<: *default
+#   url: <%= ENV['DATABASE_URL'] %>
+
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: refbackend_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
